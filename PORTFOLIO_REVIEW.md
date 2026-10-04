@@ -1,3 +1,34 @@
+# Original portfolio design restoration
+
+Restoration requested 4 October 2026 after the owner identified the loss of their original animations and visual design. The static redesign and lightweight interactive update documented below are superseded. Their past test results do not constitute verification of this restoration.
+
+## Current changes
+
+- Restored the actual original export from commit `f8179d8`: spotlights, animated headline, bento illustrations, rotating WebGL globe and arcs, technology marquee, 3D pin cards, animated border highlights, hover canvas effects, gradient contact card, and copy confetti.
+- Publish the original runtime and illustration assets again. The previous build published only eight static files and excluded these effects.
+- Keep the current Drive résumé, confirmed contact address, SAIG/Brainwave experience, and accurate project descriptions. Feature DoxChat AI, Outreach Desk, Inkline, GeneCheck, and the original Payments project.
+- Keep public live/demo links and separate code/guide links. Do not expose Outreach Desk's private repository.
+- Update initial HTML and hydrated React content together; avoid reverting facts when the page becomes interactive.
+- Correct an original globe defect: arc records lacked point coordinates. Its point layer now uses the deduplicated endpoint records already computed by the component.
+- Add keyboard focus to the original pin/canvas interactions and touch-readable approach descriptions, semantic heading levels, a skip link, and visible focus. Remove buttons nested within anchors and nonfunctional phase buttons.
+- Retain motion preference controls and system reduced-motion support. Static globe/approach fallbacks handle missing WebGL. Clipboard errors are actionable and success/confetti follow acceptance; confetti plays once.
+- Generate hashes for the required inline bootstrap scripts instead of permitting arbitrary inline scripts. Inline styles remain allowed because the original runtime uses style attributes and generated style elements.
+- The preserved export is not a recovered React source project. Transformations are checked and reproducible but future framework upgrades need source reconstruction or the original source repository. npm audit covers installed tooling, not these prebuilt chunks.
+
+## Restoration verification
+
+Local Chrome tests passed at 320, 390, 768, 1024, and 1440 px with nine axe WCAG A/AA scans and zero reported violations. Verified globe rendering, pin hover and keyboard tilt, canvas reveal on keyboard focus, current content and links, skip navigation, motion switching/persistence, system reduced motion, no-JavaScript readable links, and touch/storage-denied/WebGL-unavailable fallbacks. Clipboard success/failure used isolated browser mocks. There were zero console/hydration errors or failed resources. Desktop/mobile and active approach screenshots were visually reviewed.
+
+The final asset-fingerprinting build also passed a local smoke test with production CSP, one rendered globe, five projects, the correct résumé, zero console errors/resources failures, and a successful motion switch. Build, syntax, whitespace, and tooling dependency audit passed (zero vulnerabilities reported). Production verification is pending publication.
+
+These are Chrome checks, including touch emulation and software WebGL. Physical-device performance, other browser engines, screen-reader sessions, native zoom, actual clipboard access, and authenticated project workflows were not verified. The original bento requires JavaScript; unsupported WebGL uses a static illustration. No emails or contact messages were sent.
+
+Research: [W3C reduced-motion technique](https://www.w3.org/WAI/WCAG22/Techniques/css/C39), [Next.js Content Security Policy](https://nextjs.org/docs/app/guides/content-security-policy), and [three-globe point-layer documentation](https://github.com/vasturiano/three-globe/blob/master/README.md).
+
+---
+
+# Historical résumé review and superseded design updates
+
 # Portfolio and résumé review
 
 Reviewed 4 October 2026.

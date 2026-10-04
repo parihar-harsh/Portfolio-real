@@ -1,0 +1,16 @@
+{
+  "resume":"https://drive.google.com/file/d/1O71pQua7stH9YqdT9gEX88tqamr7Kqpd/view?usp=sharing",
+  "title":"Harsh Parihar | Software Developer",
+  "description":"Harsh Parihar builds backend systems, full-stack applications, and applied AI. Explore projects, experience, and résumé.",
+  "projects":[
+    {"id":1,"title":"DoxChat AI","des":"Ask questions across PDF, DOCX, and TXT documents with semantic retrieval, citations, streamed answers, and background processing.","img":"/doxchat-preview.svg","iconLists":["/re.svg","/JS.svg","/MongoDB.svg"],"link":"https://rag-based-doc-scanner.vercel.app/","action":"Live demo","secondary":"https://github.com/parihar-harsh/RAG-based-doc-scanner","secondaryLabel":"View code"},
+    {"id":2,"title":"Outreach Desk","des":"Personalized emails, reusable templates, batches, and persistent scheduling. Gmail connection currently requires an invited test account.","img":"/outreach-preview.svg","iconLists":["/JS.svg","/CW.svg","/SQL.svg"],"link":"https://harsh-outreach-desk.hparihar-blogapp.workers.dev","action":"Live app","secondary":"https://harsh-outreach-desk.hparihar-blogapp.workers.dev/help.html","secondaryLabel":"User guide"},
+    {"id":3,"title":"Inkline","des":"A publishing platform with authentication, post management, shared validation, and a Hono backend using PostgreSQL and Prisma.","img":"/blog-app2.png","iconLists":["/re.svg","/ts.svg","/SQL.svg","/CW.svg"],"link":"https://medium-blogapp-web.pages.dev","action":"Live demo","secondary":"https://github.com/parihar-harsh/blog-app","secondaryLabel":"View code"},
+    {"id":4,"title":"GeneCheck","des":"Educational VCF exploration with ClinVar GRCh38 exact allele matching, quality flags, and defensive parsing. Not a clinical diagnosis.","img":"/dna-svgrepo-com.svg","iconLists":["/JS.svg","/dock.svg"],"link":"https://github.com/parihar-harsh/genetic-risk-analyzer","action":"View code"},
+    {"id":5,"title":"Payments App","des":"Earlier full-stack work exploring account balances, transfers, and authentication using React, Node.js, and MongoDB.","img":"/payments-app.png","iconLists":["/re.svg","/JS.svg","/MongoDB.svg"],"link":"https://github.com/parihar-harsh/Payment-app","action":"View code"}
+  ],
+  "experience":[
+    {"id":1,"title":"Full-Stack Intern — SAIG","desc":"Apr–May 2026 · Aggregated OSINT data, built a three-stage Azure Function pipeline into Cosmos DB, and created entity-relationship, login, and dashboard interfaces.","className":"md:col-span-2","thumbnail":"/exp1.svg"},
+    {"id":2,"title":"Backend Developer Intern — Brainwave Matrix Solutions","desc":"May–Oct 2025 · Built cache-aware read paths, Hono routes and middleware across serverless modules, and standardized REST contracts and deployment configuration.","className":"md:col-span-2","thumbnail":"/exp2.svg"}
+  ]
+}

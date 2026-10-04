@@ -1,25 +1,20 @@
 # Harsh Parihar — Portfolio
 
-**Live portfolio:** [pariharharshpfolio.netlify.app](https://pariharharshpfolio.netlify.app/)
+**Live:** [pariharharshpfolio.netlify.app](https://pariharharshpfolio.netlify.app/)
 
-**Current résumé:** [View the PDF on Google Drive](https://drive.google.com/file/d/1O71pQua7stH9YqdT9gEX88tqamr7Kqpd/view?usp=sharing)
+**Résumé:** [Current PDF on Google Drive](https://drive.google.com/file/d/1O71pQua7stH9YqdT9gEX88tqamr7Kqpd/view?usp=sharing)
 
-A responsive portfolio covering backend, full-stack, applied AI, internship experience, education, certifications, and selected projects: DoxChat AI, Outreach Desk, Inkline, and GeneCheck.
+The original dark portfolio design is restored: spotlight and word entrance, illustrated bento grid, rotating globe, scrolling technology columns, 3D project pins, moving experience borders, hover canvas cards, gradient contact card, and email-copy confetti. Current résumé, SAIG/Brainwave experience, project details, and contact corrections are retained.
 
-The October 2026 update uses the owner-confirmed résumé from Downloads/resume.pdf and the owner-supplied Drive viewer link. Contact and project descriptions were aligned with that version. Public Drive access was checked and the downloaded file matched the confirmed local PDF byte for byte.
+## Editing and building
 
-## Editing
-
-- `index.html`: content, project cards, links, résumé URL and metadata.
-- `style.css`: layout, dark purple theme, responsive breakpoints, and reduced-motion support.
-- `app.js`: optional copy-email enhancement and current copyright year.
-- `_headers`: Netlify security headers.
-- `scripts/build.mjs`: copies only the eight public site files to `dist/`.
-- `scripts/browser-test.mjs`: responsive, accessibility, keyboard, clipboard failure and no-JavaScript checks.
-
-The original repository held an exported Next.js build with no React source or build configuration. The active entry point is now editable HTML/CSS/JavaScript. The original compiled `_next` files and illustration assets are retained in Git for reference but are excluded from the new published directory. The original commit is `f8179d8`; a local backup branch named `before-portfolio-review` preserves that state.
-
-## Development and verification
+- `portfolio-content.json`: résumé URL, project details, primary/secondary links, experience.
+- `design-source/`: preserved original exported HTML and two component chunks from Git commit `f8179d8`.
+- `scripts/restore-design.mjs`: checked transformations updating both the initial HTML and React components while preserving their original effects.
+- `_next/` and root image/vector assets: original static runtime and illustrations.
+- `style.css` and `app.js`: responsive refinements, keyboard/touch access, copy feedback, and motion preferences.
+- `scripts/build.mjs`: generates the static site in `dist/`, content hashes for updated components, and hashes permitting only the required inline scripts in the Content Security Policy.
+- `scripts/browser-test.mjs`: browser regression tests for restored effects, content, layouts, accessibility, and fallbacks.
 
 ```sh
 npm ci
@@ -28,31 +23,22 @@ npm run check
 npm run dev
 ```
 
-In another terminal, with Google Chrome installed:
+Open http://127.0.0.1:4174. This preview applies the production security headers. With Chrome installed, run `npm run test:browser` in another terminal. `npm audit` checks installed development dependencies; it does not audit the preserved prebuilt runtime.
 
-```sh
-npm run test:browser
-npm audit
-```
+The repository originally contained a compiled Next.js export without its React/TypeScript project source. Restoration uses that actual export rather than recreating a similar-looking design. The transformation patterns fail the build if the expected original component structure changes. Obtaining the original React source would make future structural changes and dependency upgrades easier. `dist/index.html` is the deployed entry point; the earlier root static redesign is retired.
 
-The page remains readable and its links work without JavaScript. Clipboard tests mock successful and denied browser access; they do not send emails. Automated accessibility scans are useful checks, not a complete accessibility certification.
+## Motion and interaction
 
-## Hosting
+The bottom-right **Animations on/off** button persists the preference on this browser where local storage is available and synchronizes across tabs. System reduced motion takes priority and disables the button. Turning motion off replaces the globe with a static illustration and stops decorative CSS motion and card tilts. With WebGL unavailable, static globe and readable approach cards remain. These fallbacks preserve the content and links.
 
-The existing host is Netlify. `netlify.toml` sets the build command to `npm run build`, the publish directory to `dist`, and Node.js to version 22. A site connected to this repository's `master` branch can deploy these changes automatically. A GitHub push alone does not prove that Netlify has published the latest commit; verify the live heading and new Drive résumé link after deployment.
+Project pins respond to hover and keyboard focus. Primary project links open the app/demo or code; separate links beneath applicable pins open public code or the user guide. Approach cards respond to hover, focus, and touch; descriptions remain visible on touch devices and with motion off. Copy email gives success feedback only after clipboard acceptance, and provides the address on failure. Clipboard tests use mocks and do not send messages.
 
-For a manual Netlify deployment, build and upload the contents of `dist/`. Do not upload the entire repository: the legacy export and development files are intentionally excluded from the publish directory.
+Without JavaScript the main heading, all five project cards, experience, résumé, and contact links remain usable. The original client-only bento/globe section and animation control require JavaScript. There is no claim that the full visual experience works without it.
 
-Outreach Desk demo: https://harsh-outreach-desk.hparihar-blogapp.workers.dev
+## Deployment
 
-Google connection on Outreach Desk is currently limited to invited Google test accounts. Its source repository is private, so the portfolio links its live app and public help page rather than an inaccessible code URL.
+Netlify builds `master` using `npm run build`, publishes `dist/`, and uses Node 22, as configured in `netlify.toml`. Pushes trigger the existing integration; confirm production content and tests after publication. Do not publish the whole repository or private local PDFs/configuration. Build output excludes source snapshots, node_modules, private résumé files, and documentation.
 
-See [PORTFOLIO_REVIEW.md](PORTFOLIO_REVIEW.md) for findings, validation, résumé notes, and deployment status.
+[Outreach Desk](https://harsh-outreach-desk.hparihar-blogapp.workers.dev) currently permits Google Gmail connection for invited test users. The portfolio links its public guide rather than its private repository. The same current résumé link was already saved in the owner's Outreach Desk profile without changing templates, history, or schedules.
 
-## Interactions and motion
-
-Projects can be filtered by their main focus: All work, Applied AI, Web apps, and Data. The selected button has a visible and accessible pressed state; a live status announces the result count. Filters reset to All work on refresh.
-
-The header stays visible and highlights the current section. A small top-edge progress indicator tracks reading position. Project cards have gentle mouse-only tilt and hover feedback, and sections receive a short reveal when they enter view. The decorative hero graphic has a one-time entrance rather than a continuous animation loop.
-
-Use **Animations On/Off** beneath the introduction to disable decorative motion on this device. The preference persists where local storage is allowed and synchronizes across tabs. Your system's reduced-motion setting takes priority; the control then shows System: off. Storage denial and unavailable animation observers retain working content and filters. With JavaScript disabled, all projects and links remain available while enhanced controls are hidden.
+See [PORTFOLIO_REVIEW.md](PORTFOLIO_REVIEW.md) for the inspection and verification record.
