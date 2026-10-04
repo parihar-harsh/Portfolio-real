@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pariharharshpfolio.netlify.app/sitemap.xml
