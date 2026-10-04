@@ -61,7 +61,7 @@ The owner explicitly requested the same Drive URL in the original Outreach Desk 
 
 ## Deployment status
 
-The update is prepared for the existing Netlify host with command npm run build and publish directory dist. GitHub push and production smoke-test results will be recorded after publication. No authenticated Netlify connection was available locally during initial inspection.
+The update was pushed to master as a33cee6 and published automatically by the existing Netlify integration. The live URL returned HTTP 200 with the new heading, Outreach Desk project and exact new Drive résumé link; a Content-Security-Policy header was present. The same browser suite passed on production: five additional axe scans with zero reported violations, all five viewport sizes, keyboard/project navigation, reduced motion, clipboard fixtures and no-JavaScript checks. There were no page errors or failed same-origin resources. There are ten axe scans total across local and live checks. Clipboard checks on production were mocked in the browser and did not modify server data. The final documentation commit does not change the built site files. GitHub now also lists the live URL in the repository About section. No manual Netlify login or host migration was needed.
 
 ## References
 
