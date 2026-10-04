@@ -1,3 +1,23 @@
+# UI and motion refinement — 5 October 2026
+
+The owner requested refinement without degrading the restored design, including checking for weak animations. This update tunes the original presentation; its original visual components remain active.
+
+- Tightened hero and project spacing; balanced headline typography and improved body line height.
+- Aligned pin card widths and secondary actions; retain all project text, links, and current résumé/experience facts.
+- Raised navigation link targets to 44 px and keep navigation visible when keyboard focus is inside it.
+- Improved GeneCheck illustration contrast and separated bento titles from supporting graphics.
+- Added subtle approach-card texture and an interaction hint for mouse/keyboard users. Touch and reduced-motion descriptions remain readable.
+- Shortened the staggered headline entrance; kept the original 40-degree pin tilt while changing shrink from 0.8 to 0.92 and shortening its transition. No new continuous animation loop was added.
+- Added regression checks for visible globe frame changes, moving border updates, card clipping/action overlap at all five widths, and 44 px navigation targets.
+
+Local final Chrome checks passed at 320, 390, 768, 1024, and 1440 px, with nine axe scans and zero reported violations. Actual globe/border/canvas animation updates, original pin/canvas interactions, clipboard/confetti fixtures, motion preferences, keyboard navigation, no-JavaScript links, and touch/storage/WebGL fallbacks passed. There were zero console/hydration errors or failed resources. Screenshots were visually reviewed. Build, syntax, and whitespace checks passed. Clipboard operations are mocked; no emails or messages were sent. Physical-device frame rates, other browser engines, and screen-reader sessions are not verified.
+
+Production verification is pending deployment of this refinement.
+
+Guidance consulted: [W3C target-size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum), [web.dev animation guidance](https://web.dev/articles/animations-guide). These inform the refinements; automated tests do not establish full accessibility compliance.
+
+---
+
 # Original portfolio design restoration
 
 Restoration requested 4 October 2026 after the owner identified the loss of their original animations and visual design. The static redesign and lightweight interactive update documented below are superseded. Their past test results do not constitute verification of this restoration.

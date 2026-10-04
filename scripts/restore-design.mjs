@@ -11,6 +11,10 @@ export async function restore({original,pageJS,bentoJS,content}){
  js=replace(js,'https://docs.google.com/document/d/19orXHr_JggN_S6LdYF21rDQ3RLqDLTFEDU0mkTLr3rU/edit?usp=sharing',content.resume);
  js=replace(js,'href:"#about",children:(0,a.jsx)(i.Z,{title:"Show my work"','href:"#projects",children:(0,a.jsx)(i.Z,{title:"Show my work"');
  js=replace(js,'console.log(i),r("span"','r("span"');
+ js=replace(js,'{duration:2,delay:(0,m.E)(.2)}','{duration:1.15,delay:(0,m.E)(.1)}');
+ js=replace(js,'className:"pb-20 pt-36"','className:"hero-section pb-20 pt-36"');
+ js=replace(js,'"flex max-w-fit md:min-w-[70vw]','"floating-nav flex max-w-fit md:min-w-[70vw]');
+ js=replace(js,'initial:{opacity:1,y:-100},animate:{y:r?0:-100','role:"navigation","aria-label":"Main navigation",initial:{opacity:1,y:-100},animate:{y:r?0:-100');
  js=replace(js,'(0,a.jsx)("div",{className:(0,n.cn)("font-bold",s)','(0,a.jsx)("h1",{className:(0,n.cn)("font-bold",s)');
  js=js.replaceAll('(0,a.jsxs)("h1",{className:"heading','(0,a.jsxs)("h2",{className:"heading').replaceAll('(0,a.jsx)("h1",{className:"font-bold','(0,a.jsx)("h3",{className:"font-bold').replaceAll('(0,a.jsx)("h1",{className:"text-start','(0,a.jsx)("h3",{className:"text-start');
  js=replace(js,'as:l="button"','as:l="article"');
@@ -35,6 +39,7 @@ export async function restore({original,pageJS,bentoJS,content}){
  js=replace(js,'onMouseEnter:()=>n(!0),onMouseLeave:()=>n(!1),className:"border','tabIndex:0,onFocus:()=>n(!0),onBlur:()=>n(!1),onClick:()=>n(!i),onMouseEnter:()=>n(!0),onMouseLeave:()=>n(!1),className:"border');
  js=replace(js,'children:i&&(0,a.jsx)(x.E.div','children:i&&!window.__portfolioReducedMotion&&window.__portfolioWebGLAvailable&&(0,a.jsx)(x.E.div');
  js=replace(js,'onMouseEnter:()=>{d("translate(-50%,-50%) rotateX(40deg) scale(0.8)")}','onFocus:()=>{d("translate(-50%,-50%) rotateX(40deg) scale(0.8)")},onBlur:()=>{d("translate(-50%,-50%) rotateX(0deg) scale(1)")},onMouseEnter:()=>{d("translate(-50%,-50%) rotateX(40deg) scale(0.8)")}');
+ js=js.replaceAll('rotateX(40deg) scale(0.8)','rotateX(40deg) scale(0.92)');
  // New UI lives in React's tree so hydration cannot erase controls or create mismatches.
  const toggle='(0,a.jsx)("button",{id:"motion-toggle",type:"button","aria-pressed":!reduced,onClick:()=>window.togglePortfolioMotion(),children:reduced?"Animations off":"Animations on"})';
  js=replace(js,'var O=()=>(0,a.jsx)("main",{className:','var O=()=>{let[reduced,setReduced]=(0,o.useState)(false);(0,o.useEffect)(()=>{const update=()=>setReduced(window.__portfolioReducedMotion===true);update();window.addEventListener("portfolio-motion",update);return()=>window.removeEventListener("portfolio-motion",update)},[]);return(0,a.jsx)("main",{id:"main",tabIndex:-1,className:');
@@ -45,6 +50,9 @@ export async function restore({original,pageJS,bentoJS,content}){
  js=js.replace(/,i=\[\{id:1,title:"Backend Development Intern-Brainwave[\s\S]*?\],n=\[/,',i='+JSON.stringify(content.experience)+',n=[');
  js=js.replaceAll('Currently Deploying a 3-Tier Architecture Application on AWS EKS','Cloud deployments with AWS and container orchestration').replaceAll('The Inside Scoop','Earlier infrastructure work');
  let bento=bentoJS;
+ bento=replace(bento,'className:(0,l.cn)("row-span-1 relative overflow-hidden','"data-bento":y,className:(0,l.cn)("row-span-1 relative overflow-hidden');
+ bento=replace(bento,'h,"group-hover/bento:translate-x-2','h,"bento-content group-hover/bento:translate-x-2');
+ bento=replace(bento,'className:"font-sans text-lg lg:text-3xl','className:"bento-title font-sans text-lg lg:text-3xl');
  bento=replace(bento,'2===y&&(0,i.jsx)(m,{})','2===y&&(window.__portfolioReducedMotion||!window.__portfolioWebGLAvailable?(0,i.jsx)("img",{src:"/globe-still.svg",alt:"",className:"globe-still"}):(0,i.jsx)(m,{}))');
  bento=replace(bento,'loop:E,autoplay:E','key:E?"copied":"idle",loop:false,autoplay:E&&!window.__portfolioReducedMotion');
  bento=replace(bento,'handleClick:()=>{navigator.clipboard.writeText("pariharharsh1234@gmail.com"),g(!0)}','handleClick:async()=>{try{await navigator.clipboard.writeText("pariharharsh1234@gmail.com");g(!0);window.portfolioCopyStatus("Email address copied.")}catch{g(!1);window.portfolioCopyStatus("Could not copy automatically. Email pariharharsh1234@gmail.com instead.")}}');
@@ -57,6 +65,8 @@ export async function restore({original,pageJS,bentoJS,content}){
  document.querySelector('meta[name="description"]').setAttribute('content',content.description);
  document.querySelector('link[rel="icon"]').setAttribute('href','/favicon.svg');
  const main=document.querySelector('main');main.id='main';main.setAttribute('tabindex','-1');
+ main.querySelector('.pb-20.pt-36').classList.add('hero-section');
+ const nav=main.querySelector('div.fixed');nav.classList.add('floating-nav');nav.setAttribute('role','navigation');nav.setAttribute('aria-label','Main navigation');
  for(const el of main.querySelectorAll('h1')){const h=document.createElement(el.classList.contains('heading')?'h2':'h3');for(const a of el.attributes)h.setAttribute(a.name,a.value);h.innerHTML=el.innerHTML;el.replaceWith(h);}
  const hero=main.querySelector('.font-bold.text-center');const heading=document.createElement('h1');
  for(const a of hero.attributes)heading.setAttribute(a.name,a.value);heading.innerHTML=hero.innerHTML.replaceAll('Optimzing','Optimizing');hero.replaceWith(heading);

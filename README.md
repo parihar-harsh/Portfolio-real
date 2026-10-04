@@ -42,3 +42,9 @@ Netlify builds `master` using `npm run build`, publishes `dist/`, and uses Node 
 [Outreach Desk](https://harsh-outreach-desk.hparihar-blogapp.workers.dev) currently permits Google Gmail connection for invited test users. The portfolio links its public guide rather than its private repository. The same current résumé link was already saved in the owner's Outreach Desk profile without changing templates, history, or schedules.
 
 See [PORTFOLIO_REVIEW.md](PORTFOLIO_REVIEW.md) for the inspection and verification record.
+
+## UI refinement — 5 October 2026
+
+Refined the existing design with tighter hero/project spacing, balanced headings, clearer secondary actions, 44 px navigation targets, improved illustration contrast, cleaner bento text/image separation, and visible approach interaction hints. The original spotlight, globe, marquee, pin, border, gradient, canvas, and confetti effects remain. Headline words reveal sooner; pins retain their 3D tilt with less shrink and a shorter transition. Keyboard focus keeps the floating navigation visible. Touch and reduced-motion behavior retain readable content.
+
+Regression checks include visible globe/border frame changes, card bounds and action overlap, navigation target sizes, and the existing responsiveness/accessibility/fallback checks. See the inspection report for actual local and production results.
