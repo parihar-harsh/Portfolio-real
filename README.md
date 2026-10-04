@@ -48,3 +48,11 @@ Outreach Desk demo: https://harsh-outreach-desk.hparihar-blogapp.workers.dev
 Google connection on Outreach Desk is currently limited to invited Google test accounts. Its source repository is private, so the portfolio links its live app and public help page rather than an inaccessible code URL.
 
 See [PORTFOLIO_REVIEW.md](PORTFOLIO_REVIEW.md) for findings, validation, résumé notes, and deployment status.
+
+## Interactions and motion
+
+Projects can be filtered by their main focus: All work, Applied AI, Web apps, and Data. The selected button has a visible and accessible pressed state; a live status announces the result count. Filters reset to All work on refresh.
+
+The header stays visible and highlights the current section. A small top-edge progress indicator tracks reading position. Project cards have gentle mouse-only tilt and hover feedback, and sections receive a short reveal when they enter view. The decorative hero graphic has a one-time entrance rather than a continuous animation loop.
+
+Use **Animations On/Off** beneath the introduction to disable decorative motion on this device. The preference persists where local storage is allowed and synchronizes across tabs. Your system's reduced-motion setting takes priority; the control then shows System: off. Storage denial and unavailable animation observers retain working content and filters. With JavaScript disabled, all projects and links remain available while enhanced controls are hidden.

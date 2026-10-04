@@ -67,3 +67,15 @@ The update was pushed to master as a33cee6 and published automatically by the ex
 
 - [W3C page structure guidance](https://www.w3.org/WAI/tutorials/page-structure/)
 - [MDN reduced motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
+
+## Interactive update — 4 October 2026
+
+Added short section/card reveals, a one-time hero entrance, mouse-only card tilt, hover/focus feedback, project filtering, a sticky section-aware header and a reading-progress indicator. There is no continuously running JavaScript animation loop. Animation uses opacity/transforms; scroll and pointer work are scheduled at most once per animation frame per handler. No new dependencies were added.
+
+Added an Animations toggle with guarded local storage, cross-tab preference updates and system reduced-motion priority. Disabling motion cancels active animations and resets card tilt. Content is visible by default, including when animation APIs are absent; controls appear only after their handlers are attached. Filter buttons use ordinary native buttons with pressed state and a live result count. Navigation and animation controls have 44 px minimum heights.
+
+The local Chrome suite passed with seven axe scans and zero reported violations. It checked all five viewport sizes, keyboard filtering, filter counts, focus retention, active navigation, pointer tilt/reset, saved motion preferences, live system reduced-motion changes, no-JavaScript behavior, denied storage, unavailable IntersectionObserver, and existing clipboard recovery. An observer-unavailable fallback defect discovered during testing was fixed before deployment. Browser media-preference assertions wait for the actual change event. All final local checks passed without page errors or failed resources.
+
+Production verification for this update is recorded after the push. Tests cover Chrome and a touch-emulated mobile context; they do not establish frame rates on physical devices or correctness in every browser engine.
+
+Research: [web.dev animation performance](https://web.dev/articles/animations-guide), [MDN Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), and [W3C animation from interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html).

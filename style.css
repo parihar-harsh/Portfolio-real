@@ -14,3 +14,30 @@ footer{border-top:1px solid var(--line);padding-block:28px!important;display:fle
 @media(max-width:900px){.hero-orbit{right:-90px;opacity:.4}.experience{grid-template-columns:1fr;gap:20px}.about-grid{grid-template-columns:1fr 1fr}.about-intro{grid-column:span 2;grid-row:auto}.about-intro h3{max-width:100%}.about-grid>.panel:last-child{grid-column:span 2}.approach-grid{grid-template-columns:1fr}.split{align-items:start;flex-direction:column;gap:4px}}
 @media(max-width:620px){.wrap{padding-inline:22px}.site-header{padding-block:16px;gap:8px;flex-wrap:wrap}.site-header nav{order:3;width:100%;justify-content:space-between;border-top:1px solid var(--line);padding-top:7px;margin-top:6px;gap:0}nav a{padding:9px 6px;font-size:.76rem}.hero{padding-block:60px 42px}.hero h1{font-size:clamp(2.85rem,12vw,4rem)}.hero-intro{font-size:.98rem}.hero-orbit{top:110px;right:-160px;opacity:.2}.hero-foot{font-size:.72rem;gap:7px;margin-top:30px;flex-direction:column}.section{padding-block:40px}.section-heading{margin-bottom:25px}.eyebrow{font-size:.66rem}.about-grid,.project-grid,.credentials-grid{grid-template-columns:1fr}.about-intro,.about-grid>.panel:last-child{grid-column:auto}.panel{padding:24px}.about-intro h3{font-size:1.65rem}.project{padding:0}.project-content{padding:23px}.project-visual{height:180px}.project h3{font-size:1.45rem}.actions{gap:10px}.actions>.button{flex:1}.hero .actions{align-items:stretch}.hero .button{padding:12px 13px;font-size:.78rem}.contact .actions>.button{flex-basis:100%}.contact{padding-top:55px}footer{align-items:start;flex-direction:column}.project-detail{font-size:.69rem!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Interactions enhance visible content; no element waits hidden for JavaScript. */
+[hidden]{display:none!important}
+.site-header{position:sticky;top:0;background:#070817ed;backdrop-filter:blur(16px);z-index:20}
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:30;pointer-events:none}
+.scroll-progress span{display:block;height:100%;background:linear-gradient(90deg,#c5a8fa,#94dac3);transform:scaleX(0);transform-origin:left}
+nav a[aria-current="location"]{background:#241a38;color:#e2cffb;box-shadow:inset 0 -2px #c5a8fa}
+.hero-orbit span{display:block;transition:transform .4s}
+.motion-toggle{border:1px solid #645478;border-radius:20px;padding:7px 12px;min-height:36px;background:#131126;color:var(--muted);font-size:.72rem;cursor:pointer;display:inline-flex;align-items:center;gap:10px}
+.motion-toggle span{color:var(--purple);font-weight:650}
+.project-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:-5px 0 24px}
+.project-filters{display:flex;flex-wrap:wrap;gap:8px}
+.project-filters button{font:inherit;font-size:.8rem;min-height:44px;padding:9px 16px;border:1px solid #645478;border-radius:24px;background:#111021;color:var(--muted);cursor:pointer;transition:background .18s,border-color .18s,color .18s}
+.project-filters button:hover{border-color:var(--purple);color:var(--text)}
+.project-filters button[aria-pressed="true"]{color:#171028;background:var(--purple);border-color:var(--purple)}
+.filter-status{font-size:.76rem;margin:0;color:var(--muted)}
+.project{position:relative;transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease}
+.project:focus-within{border-color:#a488cf;box-shadow:0 8px 32px #21163850}
+.project-actions .text-link span[aria-hidden]{transition:transform .18s ease}
+.project-actions .text-link:hover span[aria-hidden],.project-actions .text-link:focus-visible span[aria-hidden]{transform:translate(2px,-2px)}
+@media(hover:hover) and (pointer:fine){.project:hover{border-color:#9b7dc4;box-shadow:0 18px 48px #0c031b80}.project:hover .visual-window{transform:translateY(-4px)}.visual-window{transition:transform .3s ease}.hero-orbit:hover span{transform:rotate(8deg)}}
+.motion-off{scroll-behavior:auto!important}
+.motion-off *, .motion-off *:before,.motion-off *:after{animation:none!important;transition:none!important}
+.motion-off .project{transform:none!important}
+@media(max-width:620px){html{scroll-padding-top:150px}.project-controls{margin-top:0}.project-filters{gap:6px}.project-filters button{padding:9px 12px;font-size:.76rem}.hero-foot{align-items:flex-start}.motion-toggle{margin-top:6px}}
+@media(prefers-reduced-motion:reduce){.project{transform:none!important}}
+
+nav a{display:inline-flex;align-items:center;min-height:44px}.motion-toggle{min-height:44px}
